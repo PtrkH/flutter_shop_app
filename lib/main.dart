@@ -16,9 +16,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Lato',
       ),
       home: ProductsOverviewScreen(),
-      routes: {
-        ProductDetailScreen.routeName: (ctx) => ProductDetailScreen("a")
-      },
+      routes: {ProductDetailScreen.routeName: (ctx) => ProductDetailScreen()},
     );
   }
 }
