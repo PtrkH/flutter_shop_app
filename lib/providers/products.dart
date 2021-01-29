@@ -38,16 +38,32 @@ class Products with ChangeNotifier {
     ),
   ]; //never accesible from outside
 
+  var _showFavoritesOnly = false;
+
   List<Product> get items {
     return [..._items]; //we return a copy of the items not the direct access
+  }
+
+  List<Product> get favoriteItems {
+    return _items.where((prodItem) => prodItem.isFavorite).toList();
   }
 
   Product findById(String id) {
     return _items.firstWhere((item) => item.id == id);
   }
 
+  void showFavoritesOnly() {
+    _showFavoritesOnly = true;
+    notifyListeners();
+  }
+
+  /* void showAll() {
+    _showFavoritesOnly = false;
+    notifyListeners();
+  }
+
   void addProduct() {
     //_items.add(value);
     notifyListeners();
-  }
+  } */
 }
